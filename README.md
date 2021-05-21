@@ -1,28 +1,35 @@
-# pupalink
-by [aykxt](https://github.com/aykxt) and [billaids](https://github.com/billaids/)
+<img align="right" src="https://user-images.githubusercontent.com/14788425/119204060-d10abc80-ba94-11eb-91a0-72b0d0ab3649.png" height="300px">
 
-## Only for educational purposes!
+# ♞ pupalink
+
+A simple Python module to search and download books from SpringerLink.
+
 ---
+
+> 🧪 **This project is still in an early stage of development. Expect breaking
+> changes**.
+
+---
+
 ## Features
+
 - Search and download books from Springer Link
 
-## How to start?
-- You need an active Springer Link access
-- Use from your cookie the value from parameter "idp_session"
+## Prerequisites
 
-<div class="termy">
+- An active SpringerLink account with premium access.
 
-```console
-$ from pupalink import Session
+## Getting started
 
-$ session = Session("YOUR_IDP_SESSION)
+Sign in to your SpringerLink account and copy the `idp_session` cookie and paste it like below:
 
+```python
+from pupalink import Session
+
+session = Session("YOUR_IDP_SESSION")
 ```
-</div>
 
-## Example 
-
-<div class="termy">
+### Example 
 
 ```python
 from pupalink import Session
@@ -42,4 +49,3 @@ loop = get_event_loop()
 loop.run_until_complete(main())
 
 ```
-</div>
