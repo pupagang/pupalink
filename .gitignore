@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+.pytest_cache/
+*.egg-info/
+pip-wheel-metadata/
+*.pyc
+
+# Docs
+dist/
+
+# IDEs
+.vscode/
