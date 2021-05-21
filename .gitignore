@@ -4,6 +4,7 @@ __pycache__/
 *.egg-info/
 pip-wheel-metadata/
 *.pyc
+.venv
 
 # Docs
 dist/
