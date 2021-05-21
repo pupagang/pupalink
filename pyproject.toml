@@ -4,7 +4,12 @@ version = "0.1.0-alpha.2"
 description = "Springer Link Download Module for Python"
 readme = "README.md"
 authors = ["Jimmy Nelle <jimmy.nelle@hsw-stud.de>", "Aykut Yilmaz <aykuxt@gmail.com>"]
-maintainers = ["Jimmy Nelle <jimmy.nelle@hsw-stud.de>", "Aykut Yilmaz <aykuxt@gmail.com>"]
+license = "GPL-3.0-or-later"
+repository = "https://github.com/pupagang/pupalink"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Operating System :: OS Independent",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
