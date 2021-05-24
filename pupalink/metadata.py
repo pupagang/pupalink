@@ -29,7 +29,7 @@ class Book:
 
     def get_cover(self, width: int = None) -> str:
         if width:
-            return f"https://media.springernature.com/{width}/springer-static/cover-hires/book/{self.isbn}"
+            return f"https://media.springernature.com/w{width}/springer-static/cover-hires/book/{self.isbn}"
         return f"https://media.springernature.com/original/springer-static/cover-hires/book/{self.isbn}"
 
     def gen_dl_link(self) -> str:
