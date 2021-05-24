@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pupalink"
-version = "0.1.0-alpha.2"
+version = "0.1.0-alpha.3"
 description = "Springer Link Download Module for Python"
 readme = "README.md"
 authors = ["Jimmy Nelle <jimmy.nelle@hsw-stud.de>", "Aykut Yilmaz <aykuxt@gmail.com>"]

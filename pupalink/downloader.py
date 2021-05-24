@@ -1,3 +1,4 @@
+from typing import AsyncGenerator
 import aiohttp
 import urllib.parse as urlparse
 import os
@@ -21,7 +22,7 @@ class Session:
                     The session uses the proxy configuration from the `HTTP_PROXY`
                     environment variables if present.
             path: Pass your download path, otherwise it will use the current working directory
-            
+
         """
 
         self.__proxy = proxy
@@ -48,11 +49,19 @@ class Session:
             books = list_books(html)
             return books
 
-    async def download_book(self, book: Book):
+    async def download_book(self, book: Book) -> bytes:
         async with self._http.get(book.gen_dl_link(), proxy=self.__proxy) as response:
-            with open(f"{self.__current_dir}/{book.name}.pdf", "wb") as f:
-                async for chunk in response.content.iter_chunked(2048):
-                    f.write(chunk)
+            return await response.read()
+
+    async def stream_book(self, book: Book) -> AsyncGenerator[bytes, None]:
+        async with self._http.get(book.gen_dl_link(), proxy=self.__proxy) as response:
+            async for chunk in response.content.iter_chunked(2048):
+                yield chunk
+
+    async def save_book(self, book: Book):
+        with open(f"{self.__current_dir}/{book.name}.pdf", "wb") as f:
+            async for chunk in self.stream_book(book):
+                f.write(chunk)
 
     async def close(self):
         await self._http.close()
