@@ -27,10 +27,17 @@ class Book:
     authors: list[str]
     isbn: str
 
-    def get_cover(self, width: int = None) -> str:
+    def get_cover(self, width: int = None, height: int = None) -> str:
+        size = ""
         if width:
-            return f"https://media.springernature.com/w{width}/springer-static/cover-hires/book/{self.isbn}"
-        return f"https://media.springernature.com/original/springer-static/cover-hires/book/{self.isbn}"
+            size += f"w{width}"
+        if height:
+            size += f"h{height}"
+
+        if not size:
+            size = "original"
+
+        return f"https://media.springernature.com/{size}/springer-static/cover-hires/book/{self.isbn}"
 
     def gen_dl_link(self) -> str:
         return f"https://link.springer.com/content/pdf/10.1007%2F{self.isbn}.pdf"
