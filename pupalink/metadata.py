@@ -39,5 +39,10 @@ class Book:
 
         return f"https://media.springernature.com/{size}/springer-static/cover-hires/book/{self.isbn}"
 
-    def gen_dl_link(self) -> str:
+    @property
+    def download_link(self) -> str:
         return f"https://link.springer.com/content/pdf/10.1007%2F{self.isbn}.pdf"
+
+    @property
+    def info_link(self) -> str:
+        return f"https://link.springer.com/book/10.1007/{self.isbn}"

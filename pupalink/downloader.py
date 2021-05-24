@@ -50,11 +50,11 @@ class Session:
             return books
 
     async def download_book(self, book: Book) -> bytes:
-        async with self._http.get(book.gen_dl_link(), proxy=self.__proxy) as response:
+        async with self._http.get(book.download_link, proxy=self.__proxy) as response:
             return await response.read()
 
     async def stream_book(self, book: Book) -> AsyncGenerator[bytes, None]:
-        async with self._http.get(book.gen_dl_link(), proxy=self.__proxy) as response:
+        async with self._http.get(book.download_link, proxy=self.__proxy) as response:
             async for chunk in response.content.iter_chunked(2048):
                 yield chunk
 
