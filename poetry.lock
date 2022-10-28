@@ -34,22 +34,22 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [package.extras]
-dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "zope.interface", "furo", "sphinx", "sphinx-notfound-page", "pre-commit"]
-docs = ["furo", "sphinx", "zope.interface", "sphinx-notfound-page"]
-tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "zope.interface"]
-tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins"]
+dev = ["coverage[toml] (>=5.0.2)", "furo", "hypothesis", "mypy", "pre-commit", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "six", "sphinx", "sphinx-notfound-page", "zope.interface"]
+docs = ["furo", "sphinx", "sphinx-notfound-page", "zope.interface"]
+tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "mypy", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "six", "zope.interface"]
+tests-no-zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "mypy", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "six"]
 
 [[package]]
 name = "autopep8"
-version = "1.5.7"
+version = "1.7.1"
 description = "A tool that automatically formats Python code to conform to the PEP 8 style guide"
 category = "dev"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
-pycodestyle = ">=2.7.0"
-toml = "*"
+pycodestyle = ">=2.9.1"
+tomli = "*"
 
 [[package]]
 name = "beautifulsoup4"
@@ -93,7 +93,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, != 3.4.*"
 [package.extras]
 cssselect = ["cssselect (>=0.7)"]
 html5 = ["html5lib"]
-htmlsoup = ["beautifulsoup4"]
+htmlsoup = ["BeautifulSoup4"]
 source = ["Cython (>=0.29.7)"]
 
 [[package]]
@@ -106,11 +106,11 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "pycodestyle"
-version = "2.7.0"
+version = "2.9.1"
 description = "Python style guide checker"
 category = "dev"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+python-versions = ">=3.6"
 
 [[package]]
 name = "soupsieve"
@@ -121,12 +121,12 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
-name = "toml"
-version = "0.10.2"
-description = "Python Library for Tom's Obvious, Minimal Language"
+name = "tomli"
+version = "2.0.1"
+description = "A lil' TOML parser"
 category = "dev"
 optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+python-versions = ">=3.7"
 
 [[package]]
 name = "typing-extensions"
@@ -151,7 +151,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "59a3cff41e4848ef940d6043a801b40405cbd9fc2a1dc5a048d42f6c1081e015"
+content-hash = "620196df71254d1034b34a2c8fc120d918ad00b89b3616caf5c1eb842e10fca0"
 
 [metadata.files]
 aiohttp = [
@@ -202,8 +202,8 @@ attrs = [
     {file = "attrs-21.2.0.tar.gz", hash = "sha256:ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"},
 ]
 autopep8 = [
-    {file = "autopep8-1.5.7-py2.py3-none-any.whl", hash = "sha256:aa213493c30dcdac99537249ee65b24af0b2c29f2e83cd8b3f68760441ed0db9"},
-    {file = "autopep8-1.5.7.tar.gz", hash = "sha256:276ced7e9e3cb22e5d7c14748384a5cf5d9002257c0ed50c0e075b68011bb6d0"},
+    {file = "autopep8-1.7.1-py2.py3-none-any.whl", hash = "sha256:99afd5a60d30c6d426319e15db2ed7833d2da38f7f94a8753a1953509cc78e5d"},
+    {file = "autopep8-1.7.1.tar.gz", hash = "sha256:f0058220e4cc0ef6121996fc8ec1c32f0735e446be23c4e1f692de0bf23174dd"},
 ]
 beautifulsoup4 = [
     {file = "beautifulsoup4-4.9.3-py2-none-any.whl", hash = "sha256:4c98143716ef1cb40bf7f39a8e3eec8f8b009509e74904ba3a7b315431577e35"},
@@ -226,6 +226,8 @@ lxml = [
     {file = "lxml-4.6.3-cp27-cp27m-win_amd64.whl", hash = "sha256:8157dadbb09a34a6bd95a50690595e1fa0af1a99445e2744110e3dca7831c4ee"},
     {file = "lxml-4.6.3-cp27-cp27mu-manylinux1_i686.whl", hash = "sha256:7728e05c35412ba36d3e9795ae8995e3c86958179c9770e65558ec3fdfd3724f"},
     {file = "lxml-4.6.3-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:4bff24dfeea62f2e56f5bab929b4428ae6caba2d1eea0c2d6eb618e30a71e6d4"},
+    {file = "lxml-4.6.3-cp310-cp310-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_24_i686.whl", hash = "sha256:64812391546a18896adaa86c77c59a4998f33c24788cadc35789e55b727a37f4"},
+    {file = "lxml-4.6.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl", hash = "sha256:c1a40c06fd5ba37ad39caa0b3144eb3772e813b5fb5b084198a985431c2f1e8d"},
     {file = "lxml-4.6.3-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:74f7d8d439b18fa4c385f3f5dfd11144bb87c1da034a466c5b5577d23a1d9b51"},
     {file = "lxml-4.6.3-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:f90ba11136bfdd25cae3951af8da2e95121c9b9b93727b1b896e3fa105b2f586"},
     {file = "lxml-4.6.3-cp35-cp35m-manylinux2010_i686.whl", hash = "sha256:4c61b3a0db43a1607d6264166b230438f85bfed02e8cff20c22e564d0faff354"},
@@ -306,16 +308,16 @@ multidict = [
     {file = "multidict-5.1.0.tar.gz", hash = "sha256:25b4e5f22d3a37ddf3effc0710ba692cfc792c2b9edfb9c05aefe823256e84d5"},
 ]
 pycodestyle = [
-    {file = "pycodestyle-2.7.0-py2.py3-none-any.whl", hash = "sha256:514f76d918fcc0b55c6680472f0a37970994e07bbb80725808c17089be302068"},
-    {file = "pycodestyle-2.7.0.tar.gz", hash = "sha256:c389c1d06bf7904078ca03399a4816f974a1d590090fecea0c63ec26ebaf1cef"},
+    {file = "pycodestyle-2.9.1-py2.py3-none-any.whl", hash = "sha256:d1735fc58b418fd7c5f658d28d943854f8a849b01a5d0a1e6f3f3fdd0166804b"},
+    {file = "pycodestyle-2.9.1.tar.gz", hash = "sha256:2c9607871d58c76354b697b42f5d57e1ada7d261c261efac224b664affdc5785"},
 ]
 soupsieve = [
     {file = "soupsieve-2.2.1-py3-none-any.whl", hash = "sha256:c2c1c2d44f158cdbddab7824a9af8c4f83c76b1e23e049479aa432feb6c4c23b"},
     {file = "soupsieve-2.2.1.tar.gz", hash = "sha256:052774848f448cf19c7e959adf5566904d525f33a3f8b6ba6f6f8f26ec7de0cc"},
 ]
-toml = [
-    {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
-    {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
+tomli = [
+    {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
+    {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
 ]
 typing-extensions = [
     {file = "typing_extensions-3.10.0.0-py2-none-any.whl", hash = "sha256:0ac0f89795dd19de6b97debb0c6af1c70987fd80a2d62d1958f7e56fcc31b497"},
